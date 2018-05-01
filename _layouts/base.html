@@ -10,9 +10,12 @@
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
+
+	<!-- Custom JS -->
+	<script src="{{ '/assets/scripts/breadcrumb.js' | prepend: site.baseurl }}"></script>
 </head>
 
-<body>
+<body onload="breadcrumb()">
 	
 	{% include nav.html %}
 

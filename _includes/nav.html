@@ -1,14 +1,9 @@
 {% capture active-brand %}{% if page.url == site.baseurl %} active{% endif %}{% endcapture %}
 
-{% capture group %}{% if site.baseurl contains "data-science" %}/data-science{% endif %}{% endcapture %}
-{% capture group %}{% if site.baseurl contains "intelligence" %}/intelligence{% endif %}{% endcapture %}
-{% capture group %}{% if site.baseurl contains "hackpack" %}/hackpack{% endif %}{% endcapture %}
-{% capture group %}{% if site.baseurl contains "course" %}/course{% endif %}{% endcapture %}
-
 <nav class="navbar navbar-expand-md sigai-navbar">
 	<a class="navbar-brand{{ active-brand }}" href="{{ site.baseurl | prepend: site.url }}">
 		<span class="sigai-brand"></span>
-		<span class="sigai-group">{{ group }}</span>
+		<span class="sigai-group" id="sigai-group-breadcrumb"></span>
 	</a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarGlobal" aria-controls="navbarGlobal" aria-expanded="false" aria-label="Toggle navigation">
