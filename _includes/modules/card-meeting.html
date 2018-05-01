@@ -1,7 +1,9 @@
 {% capture zeroed_idx %}{{ include.idx | prepend: "000" | slice: -2, 2 }}{% endcapture %}
 {% capture filename %}{{ zeroed_idx }}-{{ include.meet.type }}-{{ include.meet.file }}{% endcapture %}
 
-{% capture url %}{{ site.baseurl }}/{{ include.sem }}/{{ filename }}{% endcapture %}
+{% capture url %}{{ site.baseurl }}/{{ include.sem }}{% endcapture %}
+
+{% capture url_im %}{{ url }}/assets/{{ filename }}{% endcapture %}
 {% capture url_yt %}https://youtu.be/{{ include.meet.yt }}{% endcapture %}
 {% capture url_gh %}https://github.com/{{ site.social.repo }}/tree/master/{{ include.sem }}/{{ filename }}.ipynb{% endcapture %}
 
@@ -14,9 +16,9 @@
 			</div>
 			<div class="btn btn-date btn-sm"> {{ include.meet.date | date: "%b %d" }} </div>
 		</div>
-		<img class="card-img sigai-meeting-banner" src="{{ url }}.png" />
+		<img class="card-img sigai-meeting-banner" src="{{ url_im }}.png" />
 		<div class="card-body">
-			<a class="card-title" href="{{ url }}/"> {{ include.meet.name }} </a>
+			<a class="card-title" href="{{ url }}/{{ filename }}/"> {{ include.meet.name }} </a>
 			<p> {{ include.meet.desc }} </p>
 		</div>
 		<div class="card-footer">
