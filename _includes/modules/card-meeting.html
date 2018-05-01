@@ -1,0 +1,33 @@
+{% capture zeroed_idx %}{{ include.idx | prepend: "000" | slice: -2, 2 }}{% endcapture %}
+{% capture filename %}{{ zeroed_idx }}-{{ include.meet.type }}-{{ include.meet.file }}{% endcapture %}
+
+{% capture url %}{{ site.baseurl }}/{{ include.sem }}/{{ filename }}{% endcapture %}
+{% capture url_yt %}https://youtu.be/{{ include.meet.yt }}{% endcapture %}
+{% capture url_gh %}https://github.com/{{ site.social.repo }}/tree/master/{{ include.sem }}/{{ filename }}.ipynb{% endcapture %}
+
+<div class="card card-sigai-meeting">
+	<div class="card-header d-flex justify-content-between">
+		<div class="btn btn-group btn-group-md py-0 pl-0">
+			<a class="btn btn-youtube btn-secondary" href="{{ url_yt }}">
+				<i class="fab fa-youtube"> </i>
+			</a>
+			<a class="btn btn-github btn-secondary" href="{{ url_gh }}">
+				<i class="fab fa-github"> </i>
+			</a>
+		</div>
+		<div class="btn btn-date btn-sm btn-info"> {{ include.meet.date | date: "%b %d" }} </div>
+	</div>
+	<img class="card-img sigai-meeting-banner" 
+		 src="{{ url }}.png" />
+	<div class="card-body">
+		<a class="card-title" href="{{ url }}/"> {{ include.meet.name }} </a>
+		<p> {{ include.meet.desc }} </p>
+	</div>
+	<div class="card-footer">
+		<div class="btn btn-group-sm p-0">
+			{% for inst in include.meet.inst %}
+			<a class="btn btn-sigai-inst btn-primary" href="https://github.com/{{ inst }}">{{ inst }}</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>

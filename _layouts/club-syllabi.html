@@ -1,0 +1,26 @@
+---
+layout: base
+---
+
+{% include modules/alert-setup.html %}
+
+<h1 class="sigai-section-title"> Syllabus, {{ page.semester }} </h1>
+
+{% capture desc %}{{ site.data[page.sem].syllabus.desc }}{% endcapture %}
+{% include modules/alert-semester-description.html desc=desc %}
+
+{% assign idx = 0 %}
+
+{% for unit in site.data[page.sem].syllabus.units %}
+	<div class="card-deck">
+	{% for meet in unit.list %}
+		{% include modules/card-meeting.html
+			sem=page.sem 
+			unit=unit.unit 
+			name=unit.name 
+			desc=unit.desc
+			meet=meet %}
+		{% assign idx = idx | plus: 1 %}
+	{% endfor %}
+	</div>
+{% endfor %}
