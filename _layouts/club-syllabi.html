@@ -7,7 +7,7 @@ layout: base
 <h1 class="sigai-section-title"> Syllabus, {{ page.semester }} </h1>
 
 {% capture desc %}{{ site.data[page.sem].syllabus.desc }}{% endcapture %}
-{% include modules/alert-semester-description.html desc=desc %}
+{% include modules/alert-semester-description.html desc=desc semester=page.semester %}
 
 {% assign idx = 0 %}
 
