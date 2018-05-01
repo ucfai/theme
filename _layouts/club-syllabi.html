@@ -15,6 +15,7 @@ layout: base
 	<div class="card-deck">
 	{% for meet in unit.list %}
 		{% include modules/card-meeting.html
+			idx=idx
 			sem=page.sem 
 			unit=unit.unit 
 			name=unit.name 
