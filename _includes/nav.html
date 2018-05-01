@@ -1,37 +1,27 @@
-{% capture active-brand %}{% if page.url == site.baseurl %} active{% endif %}{% endcapture %}
-
 <nav class="navbar navbar-expand-md sigai-navbar">
-	<a class="navbar-brand{{ active-brand }}" href="{{ site.baseurl | prepend: site.url }}">
+	<a id="sigai-group-brand" class="navbar-brand" href="{{ site.baseurl | prepend: site.url }}">
 		<span class="sigai-brand"></span>
 		<span class="sigai-group" id="sigai-group-breadcrumb"></span>
 	</a>
 
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarGlobal" aria-controls="navbarGlobal" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler"
+			type="button"
+			data-toggle="collapse" 
+			data-target="#navbarGlobal" 
+			aria-controls="navbarGlobal" 
+			aria-expanded="false" 
+			aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarGlobal">
-		<ul class="navbar-nav ml-auto sigai-nav">
-			<li class="nav-item">
-				<a class="nav-link" href="/setup/"> setup </a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/hackpack/"> hackpack </a>
-			</li>
-			<li class="nav-item dropdown">
-				<span class="nav-link dropdown-toggle" id="groupsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> groups </span>
-
-				<div class="dropdown-menu" aria-labelledby="groupsDropdown">
-					<a class="dropdown-item" href="/data-science/">data-science</a>
-					<a class="dropdown-item" href="/intelligence/">intelligence</a>
-				</div>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/course/"> course </a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/about/"> about </a>
-			</li>
+		<div class="navbar-nav ml-auto sigai-nav">
+			<a class="nav-item nav-link" href="/setup/"> setup </a>
+			<a class="nav-item nav-link" href="/intelligence/"> intelligence </a>
+			<a class="nav-item nav-link" href="/data-science/"> data-science </a>
+			<a class="nav-item nav-link" href="/hackpack/"> hackpack </a>
+			<a class="nav-item nav-link" href="/course/"> course </a>
+			<a class="nav-item nav-link" href="/about/"> about </a>
 		</ul>
 	</div>
 </nav>

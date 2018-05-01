@@ -15,7 +15,7 @@
 	<script src="{{ '/assets/scripts/utils.js' | prepend: site.baseurl }}"></script>
 </head>
 
-<body class="sigai-global-dark" onload="breadcrumb(), sizeBanner(), hideme()">
+<body class="sigai-global-dark" onload="highlightLinks(), sizeBanner(), hideme()" onresize="sizeBanner()">
 	
 	{% include nav.html %}
 

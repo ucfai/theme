@@ -20,13 +20,24 @@ function hideme() {
   }
 }
 
-function breadcrumb() {
-	var page = window.location.href;
-
+function breadcrumb(page) {
 	var subsites = ["hackpack", "course", "data-science", "intelligence"];
 
 	subsites.forEach(function (subsite) {
-		if (page.includes(subsite))
+		if (page.includes(subsite)) {
+			document.getElementById("sigai-group-brand").classList.add("active")
 			document.getElementById("sigai-group-breadcrumb").innerHTML = `/${subsite}`;
+		}
 	});
+}
+
+function highlightLinks {
+	var page = window.location.href;
+	breadcrumb(page);
+
+	var nav = document.getElementById("navbarGlobal").firstElementChild;
+
+	for (let ele of nav.children)
+		if (page.includes(ele.href))
+			ele.classList.add("active");
 }
