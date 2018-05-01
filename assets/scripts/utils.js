@@ -31,7 +31,7 @@ function breadcrumb(page) {
 	});
 }
 
-function highlightLinks {
+function highlightLinks() {
 	var page = window.location.href;
 	breadcrumb(page);
 
