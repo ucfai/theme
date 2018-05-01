@@ -3,10 +3,11 @@ nav.sigai-navbar {
 	padding: 0;
 	margin: 0;
 	background: $nav-def-bg;
+	z-index: 1000000000000;
 
 	div.sigai-nav {
-		height: 100%;
 		padding: 0 16px;
+		background: $nav-def-bg;
 		a.nav-item.nav-link {
 			padding: 16px;
 			font-weight: 500;
@@ -20,6 +21,14 @@ nav.sigai-navbar {
 			&.active {
 				background: $nav-active;
 			}
+		}
+	}
+
+	.navbar-toggler {
+		height: 64px;
+		width: 64px;
+		svg.fa-bars > path {
+			fill: $brand-white !important;
 		}
 	}
 }

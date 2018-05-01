@@ -11,7 +11,7 @@ layout: base
 
 {% assign idx = 0 %}
 
-<div class="row px-3">
+<div class="row">
 {% for unit in site.data[page.sem].syllabus.units %}
 	{% for meet in unit.list %}
 		{% include modules/card-meeting.html

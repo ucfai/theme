@@ -1,25 +1,19 @@
-<nav class="navbar navbar-expand-md sigai-navbar">
-	<a id="sigai-group-brand" class="navbar-brand" href="{{ site.baseurl | prepend: site.url }}">
+<nav class="navbar navbar-expand-lg sigai-navbar">
+	<a id="sigai-group-brand" class="navbar-brand{{ active-brand }}" href="{{ site.baseurl | prepend: site.url }}">
 		<span class="sigai-brand"></span>
 		<span class="sigai-group" id="sigai-group-breadcrumb"></span>
 	</a>
 
-	<button class="navbar-toggler"
-			type="button"
-			data-toggle="collapse" 
-			data-target="#navbarGlobal" 
-			aria-controls="navbarGlobal" 
-			aria-expanded="false" 
-			aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarGlobal" aria-controls="navbarGlobal" aria-expanded="false" aria-label="Toggle navigation">
+	    <i class="fas fa-bars fa-lg"> </i>
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarGlobal">
 		<div class="navbar-nav ml-auto sigai-nav">
 			<a class="nav-item nav-link" href="/setup/"> setup </a>
+			<a class="nav-item nav-link" href="/hackpack/"> hackpack </a>
 			<a class="nav-item nav-link" href="/intelligence/"> intelligence </a>
 			<a class="nav-item nav-link" href="/data-science/"> data-science </a>
-			<a class="nav-item nav-link" href="/hackpack/"> hackpack </a>
 			<a class="nav-item nav-link" href="/course/"> course </a>
 			<a class="nav-item nav-link" href="/about/"> about </a>
 		</ul>

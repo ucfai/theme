@@ -1,0 +1,56 @@
+body.sigai-global-dark {
+	.alert-sigai-semester-description {
+		background: #505963;
+		color: $brand-white;
+	}
+
+	.card-sigai-meeting {
+		background: #3b4650;
+		.sigai-meeting-banner {
+			background: #202020;
+		}
+		.card-body {
+			.card-title {
+				font-weight: 700;
+				font-size: 17px;
+				color: $brand-gold;
+			}
+			p {
+				color: #dcdcdc;
+			}
+		}
+		.card-footer {
+			.btn.btn-sigai-inst {
+
+			}
+			.btn.btn-sigai-unit {
+				
+			}
+		}
+	}
+}
+
+.btn-yt {
+	color: $brand-white;
+	background: #ff0000;
+}
+
+.btn-gh {
+	color: #333333;
+	background: #f5f5f5;
+}
+
+.btn-date {
+	color: $brand-white;
+	background: #ff4f81;
+}
+
+.btn-sigai-inst {
+	color: $brand-white;
+	background: #788cb6;
+}
+
+.btn-sigai-unit {
+	color: $brand-white;
+	background: #2754ba;
+}
