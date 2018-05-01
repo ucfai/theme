@@ -11,8 +11,8 @@ layout: base
 
 {% assign idx = 0 %}
 
+<div class="row px-3">
 {% for unit in site.data[page.sem].syllabus.units %}
-	<div class="card-deck">
 	{% for meet in unit.list %}
 		{% include modules/card-meeting.html
 			idx=idx
@@ -23,5 +23,5 @@ layout: base
 			meet=meet %}
 		{% assign idx = idx | plus: 1 %}
 	{% endfor %}
-	</div>
 {% endfor %}
+</div>
