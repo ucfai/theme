@@ -2,26 +2,50 @@
 layout: base
 ---
 
-{% include modules/alert-setup.html %}
+{% capture sem %}{{ page.path | split: "/" | first }}{% endcapture %}
+{% assign topics = site.categories[sem] | reverse | group_by: "tags" %}
 
-<h1 class="sigai-section-title"> Syllabus, {{ page.semester }} </h1>
+<h1 class="text-center"> Syllabus for the {{ site.data.conv[sem] }} Semester </h1>
 
-{% capture desc %}{{ site.data[page.sem].syllabus.desc }}{% endcapture %}
-{% include modules/alert-semester-description.html desc=desc semester=page.semester %}
+{% for topic in topics %}
+<div class="my-3 p-3 bg-white rounded box-shadow">
+	<h3 class="border-bottom border-gray pb-2 mb-0"> 
+		{{ topic.name | remove: "[" | remove: "]" | remove: '"' }}
+	</h3>
+	<ul class="list-unstyled">
+		{% for post in topic.items %}
+			<li class="text-muted py-3 d-lg-flex">
+				<div class="col-12 col-lg-4 pb-3 pb-lg-0">
+					<img class="img-thumbnail" src="{{ 'banner.ping' | prepend: post.url | relative_url }}" />
+				</div>
+				<div class="col-12 col-lg-8 pb-3 pb-0 mb-0 border-bottom border-gray d-flex flex-column">
+					<a href="{{ post.url | relative_url }}">
+						<h4> {{ post.title | markdownify }}</h4>
+					</a>
+					<p style="flex: 1 0 auto;"> {{ post.excerpt | remove: '<p>' | remove: '</p>' }} </p>
+					<div class="btn-toolbar justify-content-between">
+						<div class="btn-group">
+							{% capture url_yt %}{% if post.yt %}https://youtu.be/{{ post.yt }}{% endif %}{% endcapture %}
+							<a class="btn btn-yt" href="{{ url_yt }}"> <i class="fab fa-youtube"></i> </a>
+							{% assign name = post.path | split: "/" %}
+							{% assign name = name[1] %}
+							{% capture url_gh %}https://github.com{{ site.social.repo }}/tree/master/{{ name }}.ipynb{% endcapture %}
+							<a class="btn btn-gh" href="{{ url_gh }}"> <i class="fab fa-github"></i> </a>
+						</div>
 
-{% assign idx = 0 %}
-
-<div class="row">
-{% for unit in site.data[page.sem].syllabus.units %}
-	{% for meet in unit.list %}
-		{% include modules/card-meeting.html
-			idx=idx
-			sem=page.sem 
-			unit=unit.unit 
-			name=unit.name 
-			desc=unit.desc
-			meet=meet %}
-		{% assign idx = idx | plus: 1 %}
-	{% endfor %}
-{% endfor %}
+						<div class="btn-group btn-group-sm">
+								{% for instructor in post.instructor %}
+									{% assign idx = site.data.instructors[instructor] %}
+									{% assign tch = site.data.instructors.list[idx] %}
+									<a class="btn btn-sigai-instructor" href="https://github.com/{{ tch.git }}">
+										{{ tch.nam }}
+									</a>
+								{% endfor %}
+							</div>
+					</div>
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
 </div>
+{% endfor %}
